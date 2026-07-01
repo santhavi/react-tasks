@@ -1,14 +1,22 @@
-import './App.css'
-import { useState } from 'react'
+import { useState } from "react";
 
 function App() {
-  const [name, setName] = useState("");
+  const [text, setText] = useState("");
 
   return (
-    <>
-      <input type="text" placeholder='Enter your name' value = {name} onChange={(event) => setName(event.target.value)} />
-      <h1>Hello {name}</h1>
-    </>
+    <div>
+      <h2>Live Character Counter</h2>
+
+      <textarea
+        rows="8"
+        cols="40"
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+      ></textarea>
+
+      <h3>Characters : {text.length}</h3>
+      <h3>Words : {text === "" ? 0 : text.split(" ").length}</h3>
+    </div>
   );
 }
 
