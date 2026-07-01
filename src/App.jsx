@@ -1,17 +1,21 @@
 import { useState } from "react";
-import "./App.css";
 
 function App() {
-  const [color, setColor] = useState("white");
+  const [text, setText] = useState("");
 
   return (
-    <div className="container" style={{ backgroundColor: color }}>
-      <h2>Background Color Changer</h2>
+    <div>
+      <h2>Live Character Counter</h2>
 
-      <button onClick={() => setColor("red")}>Red</button>
-      <button onClick={() => setColor("green")}>Green</button>
-      <button onClick={() => setColor("blue")}>Blue</button>
-      <button onClick={() => setColor("yellow")}>Yellow</button>
+      <textarea
+        rows="8"
+        cols="40"
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+      ></textarea>
+
+      <h3>Characters : {text.length}</h3>
+      <h3>Words : {text === "" ? 0 : text.split(" ").length}</h3>
     </div>
   );
 }
